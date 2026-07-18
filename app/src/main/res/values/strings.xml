@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Movie</string>
+
+    <!-- Movie List Screen -->
+    <string name="title_movie_list">Phim Đã Xem</string>
+    <string name="btn_add_movie">Thêm Phim</string>
+    <string name="empty_movie_list">Chưa có bộ phim nào được lưu lại.</string>
+    <string name="label_release_year">Năm phát hành: %1$s</string>
+    <string name="desc_delete_movie">Xóa Phim</string>
+    <string name="desc_movie_poster">Poster Phim</string>
+
+    <!-- Add Movie Screen -->
+    <string name="title_add_movie">Thêm Phim Mới</string>
+    <string name="label_movie_title">Tên bộ phim</string>
+    <string name="label_release_year_input">Năm phát hành</string>
+    <string name="label_image_url">URL hình ảnh hoặc chọn từ máy</string>
+    <string name="btn_select_image">Chọn ảnh từ thư viện</string>
+    <string name="label_image_preview">Ảnh đã chọn</string>
+    <string name="hint_image_url">https://example.com/poster.jpg</string>
+    <string name="label_rating">Đánh giá: %1$d Sao</string>
+    <string name="label_notes">Ghi chú cá nhân</string>
+    <string name="label_last_watched">Xem đến lúc (Ví dụ: 01:20:00)</string>
+    <string name="label_last_watched_display">Đã xem đến: %1$s</string>
+    <string name="no_last_watched">Đã xem đến: Không có</string>
+    <string name="btn_save_movie">Lưu Bộ Phim</string>
+    <string name="desc_back">Quay lại</string>
+
+    <!-- Movie Detail Screen -->
+    <string name="title_movie_detail">Chi tiết Phim</string>
+    <string name="label_personal_rating">Đánh giá cá nhân:</string>
+    <string name="label_personal_notes">Ghi chú cá nhân:</string>
+    <string name="no_notes">Không có ghi chú nào.</string>
+    <string name="error_movie_not_found">Không tìm thấy thông tin phim.</string>
+</resources>
