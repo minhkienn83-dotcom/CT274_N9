@@ -11,5 +11,7 @@ class MovieRepository(private val movieDao: MovieDao) {
 
     suspend fun deleteMovie(movie: Movie) = movieDao.deleteMovie(movie)
 
-    suspend fun updateMovie(movie: Movie) = movieDao.insertMovie(movie) // Room với OnConflictStrategy.REPLACE sẽ tự update
+    suspend fun updateMovie(movie: Movie) = movieDao.insertMovie(movie)
+
+    suspend fun deleteAllMovies() = movieDao.deleteAllMovies()
 }

@@ -8,6 +8,9 @@ import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
@@ -20,6 +23,8 @@ import com.example.movie.ui.MovieViewModel
 import com.example.movie.ui.screens.AddMovieScreen
 import com.example.movie.ui.screens.MovieDetailScreen
 import com.example.movie.ui.screens.MovieListScreen
+import com.example.movie.ui.screens.SettingsScreen
+import com.example.movie.ui.screens.StatisticsScreen
 import com.example.movie.ui.theme.MovieTheme
 import kotlinx.serialization.Serializable
 
@@ -27,6 +32,8 @@ import kotlinx.serialization.Serializable
 @Serializable object MovieListRoute
 @Serializable data class MovieDetailRoute(val id: Int)
 @Serializable object AddMovieRoute
+@Serializable object SettingsRoute
+@Serializable object StatisticsRoute
 
 class MainActivity : ComponentActivity() {
     private val movieViewModel: MovieViewModel by viewModels {
@@ -44,7 +51,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MovieTheme {
+            val isDarkMode by movieViewModel.isDarkMode.collectAsState()
+            val primaryColorLong by movieViewModel.primaryColor.collectAsState()
+            
+            MovieTheme(
+                darkTheme = isDarkMode,
+                dynamicPrimaryColor = Color(primaryColorLong)
+            ) {
                 AppNavigation(viewModel = movieViewModel)
             }
         }
@@ -54,11 +67,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppNavigation(viewModel: MovieViewModel) {
     val navController = rememberNavController()
+    val movies by viewModel.movies.collectAsState()
 
     NavHost(
         navController = navController, 
         startDestination = MovieListRoute,
-        // Loại bỏ hiệu ứng chuyển màn hình (Chớp sáng/Trượt)
         enterTransition = { EnterTransition.None },
         exitTransition = { ExitTransition.None },
         popEnterTransition = { EnterTransition.None },
@@ -68,7 +81,9 @@ fun AppNavigation(viewModel: MovieViewModel) {
             MovieListScreen(
                 viewModel = viewModel,
                 onAddMovieClick = { navController.navigate(AddMovieRoute) },
-                onMovieClick = { movieId -> navController.navigate(MovieDetailRoute(movieId)) }
+                onMovieClick = { movieId -> navController.navigate(MovieDetailRoute(movieId)) },
+                onSettingsClick = { navController.navigate(SettingsRoute) },
+                onStatisticsClick = { navController.navigate(StatisticsRoute) }
             )
         }
 
@@ -85,6 +100,20 @@ fun AppNavigation(viewModel: MovieViewModel) {
             AddMovieScreen(
                 viewModel = viewModel,
                 onMovieAdded = { navController.popBackStack() },
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable<SettingsRoute> {
+            SettingsScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable<StatisticsRoute> {
+            StatisticsScreen(
+                movies = movies,
                 onBackClick = { navController.popBackStack() }
             )
         }

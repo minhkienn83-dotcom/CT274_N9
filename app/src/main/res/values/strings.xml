@@ -31,4 +31,26 @@
     <string name="label_personal_notes">Ghi chú cá nhân:</string>
     <string name="no_notes">Không có ghi chú nào.</string>
     <string name="error_movie_not_found">Không tìm thấy thông tin phim.</string>
+    <string name="title_edit_movie">Chỉnh sửa phim</string>
+    <string name="btn_update">Cập nhật</string>
+
+    <!-- Settings Screen -->
+    <string name="title_settings">Cài đặt</string>
+    <string name="desc_settings">Cấu hình ứng dụng</string>
+    <string name="section_data">Dữ liệu</string>
+    <string name="btn_clear_all">Xóa toàn bộ phim</string>
+    <string name="confirm_clear_all">Bạn có chắc chắn muốn xóa sạch danh sách phim không? Hành động này không thể hoàn tác.</string>
+    <string name="section_about">Thông tin</string>
+    <string name="app_version">Phiên bản: 1.0.0</string>
+    <string name="app_author">Tác giả: Nhóm CT274_N9</string>
+    <string name="dialog_cancel">Hủy</string>
+    <string name="dialog_confirm">Xác nhận xóa</string>
+
+    <!-- Statistics Screen -->
+    <string name="title_statistics">Thống kê</string>
+    <string name="label_total_movies">Tổng số bộ phim:</string>
+    <string name="label_average_rating">Đánh giá trung bình:</string>
+    <string name="label_rating_distribution">Phân bổ đánh giá:</string>
+    <string name="label_stars">%1$d sao</string>
+    <string name="label_movie_count">%1$d phim</string>
 </resources>
