@@ -49,16 +49,6 @@ app/src/main/java/com/example/movie/
 └── MainActivity       # Điểm bắt đầu và cấu hình Navigation
 ```
 
----
-
-## 📸 Ảnh chụp màn hình
-
-*(Em có thể thêm ảnh vào thư mục screenshots và chèn link vào đây)*
-| Màn hình chính | Thêm phim mới | Thống kê |
-| :---: | :---: | :---: |
-| ![Main](https://via.placeholder.com/200x400) | ![Add](https://via.placeholder.com/200x400) | ![Stats](https://via.placeholder.com/200x400) |
-
----
 
 ## 👨‍💻 Thành viên thực hiện
 *   **Nhóm:** CT274_N9
